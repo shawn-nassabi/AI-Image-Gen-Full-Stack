@@ -6,6 +6,7 @@ import { Home, Create } from "./pages";
 
 const App = () => {
   return (
+    // Browser Router uses browser history to optimize routing
     <BrowserRouter>
       <header className="w-full flex justify-between items-center bg-slate-50 border-b border-b-slate-400 p-2">
         <Link to="/">
@@ -14,7 +15,7 @@ const App = () => {
 
         <Link
           to="/create"
-          className="bg-green-400 w-16 mx-8 h-fit text-center rounded-md text-sm"
+          className="bg-green-400 w-16 mx-8 h-fit text-center rounded-sm text-sm"
         >
           Create
         </Link>
