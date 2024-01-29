@@ -15,7 +15,7 @@ const App = () => {
 
         <Link
           to="/create"
-          className="bg-green-400 w-16 mx-8 h-fit text-center rounded-sm text-sm"
+          className="bg-green-400 w-16 mx-8 h-fit text-center rounded-md text-sm"
         >
           Create
         </Link>
