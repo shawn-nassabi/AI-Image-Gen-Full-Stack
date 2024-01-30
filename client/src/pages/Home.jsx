@@ -17,6 +17,32 @@ const Home = () => {
   const [allPosts, setAllPosts] = useState(null);
   const [searchText, setSearchText] = useState("ABC");
 
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+
+      try {
+        const res = await fetch("http://localhost:8080/api/v1/post", {
+          method: "GET",
+          headers: {
+            "Content-Type": "applications/json",
+          },
+        });
+
+        if (res.ok) {
+          const result = await res.json();
+          setAllPosts(result.data.reverse());
+        }
+      } catch (error) {
+        alert(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   return (
     <>
       <div className="">
@@ -47,7 +73,7 @@ const Home = () => {
               {searchText ? (
                 <RenderCards data={[]} title="No search results found" />
               ) : (
-                <RenderCards data={[]} title="No posts found" />
+                <RenderCards data={allPosts} title="No posts found" />
               )}
             </div>
           </>
